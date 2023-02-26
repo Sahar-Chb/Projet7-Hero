@@ -1,0 +1,19 @@
+<div class="row p-4">
+
+  <div class="col-lg-3 mb-5" *ngFor="let item of heros">
+    <div
+      [ngClass]="{'card text-center':true,'bg-danger':item.power<20,'bg-success':item.power>=20 && item.power <=30,'bg-warning':item.power >40}">
+      <img [src]="'http://127.0.0.1:3005/getimage/'+ item.image">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{item.name}}</h5>
+        <p class="card-text text-center fw-bold">{{item.power}}</p>
+
+        <button class="btn btn-warning" (click)="deleteItem(item._id)">Delete</button>
+        <button class="btn btn-info ms-4" [routerLink]="['/update',item._id]">Edit</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
